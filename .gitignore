@@ -97,10 +97,8 @@ temp/
 .vite/
 
 # GitHub Pages built files
-index.html
 assets/
 .nojekyll
-404.html
 favicon.svg
 
 # TypeScript cache
