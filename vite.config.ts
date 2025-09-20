@@ -12,6 +12,7 @@ export default defineConfig({
   },
   base: "/ankita012.github.io/",
   build: {
+    outDir: 'docs',
     rollupOptions: {
       input: {
         main: "public/index.html",
