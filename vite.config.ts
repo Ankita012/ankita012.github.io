@@ -9,5 +9,13 @@ export default defineConfig({
     alias: {
       "@": path.resolve(path.dirname(fileURLToPath(import.meta.url)), "./src"),
     },
-  }
+  },
+  base: "/ankita012.github.io/",
+  build: {
+    rollupOptions: {
+      input: {
+        main: "public/index.html",
+      },
+    },
+  },
 })

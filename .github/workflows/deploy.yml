@@ -27,6 +27,9 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Move index.html to root
+        run: mv dist/public/index.html dist/index.html
+
       - name: List build output
         run: ls -la
 
