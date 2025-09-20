@@ -36,6 +36,8 @@ jobs:
         run: npm run build
       - name: Move index.html to root
         run: mv docs/public/index.html docs/index.html
+      - name: Create .nojekyll
+        run: touch docs/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
