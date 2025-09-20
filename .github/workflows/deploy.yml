@@ -29,10 +29,13 @@ jobs:
         run: npm run build
         working-directory: vite_react_shadcn_ts
 
+      - name: List build output
+        run: ls -la
+        working-directory: vite_react_shadcn_ts
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: vite_react_shadcn_ts/dist
-          publish_branch: main
