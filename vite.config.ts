@@ -6,12 +6,14 @@ import { fileURLToPath } from "url"
 // Declare minimal process typing to avoid requiring @types/node
 declare const process: { env?: Record<string, string | undefined> }
 
-// Use repo name when running in GitHub Actions to set base for GitHub Pages
+// For user pages (username.github.io), base should be '/'
+// For project pages, it would be '/repo-name/'
 const repoName = process.env?.GITHUB_REPOSITORY?.split('/')?.[1]
+const isUserPage = repoName?.endsWith('.github.io')
 const isCI = process.env?.GITHUB_ACTIONS === 'true'
 
 export default defineConfig({
-  base: isCI && repoName ? `/${repoName}/` : '/',
+  base: isCI && !isUserPage && repoName ? `/${repoName}/` : '/',
   plugins: [react()],
   resolve: {
     alias: {
